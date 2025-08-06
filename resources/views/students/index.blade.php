@@ -2,13 +2,15 @@
 
 @section('title', 'Daftar Pengguna')
 @section('content')
-
-<div style="border: 1px solid grey; padding: 10px; margin: 40px; background-color: white; border-radius: 20px;">
-<div class="flex flex-wrap container mx-auto p-4">
-    @foreach($students as $user)
-        <a href="/students/{{$user['id']}}"><x-card nama="{{$user['nama']}}" studentname="{{$user['studentname']}}" deskripsi="{{$user['deskripsi']}}"/></a>
-    @endforeach
-
-</div>
-</div>
+<body style="background-image:url('https://i.pinimg.com/736x/3c/f0/ea/3cf0ea2ad51c519c9277a5ebfccdfd67.jpg');"> 
+    <div class="mx-auto my-10 w-300 rounded-2xl border border-gray-300 bg-white p-6">
+        <div class="flex flex-wrap justify-center gap-6">
+            @foreach ($students as $student)
+                <a href="/students/{{ $student['id'] }}">
+                    <x-card :students="$student" />
+                </a>
+            @endforeach
+        </div>
+    </div>
+</body>
 @endsection
